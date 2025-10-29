@@ -15,6 +15,7 @@ A modern, user-friendly tournament management application for Pétanque competit
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm
 
@@ -52,4 +53,3 @@ npm run build
 ## 📝 License
 
 This project is open source and available for personal and educational use.
-

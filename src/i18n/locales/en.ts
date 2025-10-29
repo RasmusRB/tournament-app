@@ -23,8 +23,7 @@ export default {
         "⚠️ You have {{count}} teams. Please add one more team to make an even number.",
       teamsWithoutPlayers:
         "⚠️ Some teams don't have any players. Please add at least one player to each team before starting the tournament.",
-      needMoreTeams:
-        "⚠️ You need at least 2 teams to start a tournament.",
+      needMoreTeams: "⚠️ You need at least 2 teams to start a tournament.",
       noPlayers: "No players yet",
       playerCount: "{{count}} player",
       playerCount_plural: "{{count}} players",

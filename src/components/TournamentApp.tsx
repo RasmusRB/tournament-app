@@ -102,11 +102,13 @@ export default function TournamentApp() {
       : null;
 
   // Validation checks
-  const hasTeamsWithoutPlayers = teams.some((team) => team.players.length === 0);
+  const hasTeamsWithoutPlayers = teams.some(
+    (team) => team.players.length === 0
+  );
 
   const canStartTournament =
-    teams.length >= 2 && 
-    teams.length % 2 === 0 && 
+    teams.length >= 2 &&
+    teams.length % 2 === 0 &&
     !tournamentStarted &&
     !hasTeamsWithoutPlayers;
 
@@ -115,15 +117,21 @@ export default function TournamentApp() {
       {/* Animated background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 -left-1/4 w-96 h-96 bg-purple-300/30 dark:bg-purple-600/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl animate-pulse"></div>
-        <div className="absolute top-0 -right-1/4 w-96 h-96 bg-indigo-300/30 dark:bg-indigo-600/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl animate-pulse" style={{ animationDelay: "2s" }}></div>
-        <div className="absolute -bottom-8 left-1/3 w-96 h-96 bg-pink-300/30 dark:bg-pink-600/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl animate-pulse" style={{ animationDelay: "4s" }}></div>
+        <div
+          className="absolute top-0 -right-1/4 w-96 h-96 bg-indigo-300/30 dark:bg-indigo-600/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl animate-pulse"
+          style={{ animationDelay: "2s" }}
+        ></div>
+        <div
+          className="absolute -bottom-8 left-1/3 w-96 h-96 bg-pink-300/30 dark:bg-pink-600/20 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-3xl animate-pulse"
+          style={{ animationDelay: "4s" }}
+        ></div>
       </div>
 
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
         {/* Header */}
-        <div className="text-center space-y-2 relative">
+        <div className="text-center space-y-4 relative">
           {/* Control Buttons Row */}
-          <div className="absolute right-0 top-0 flex gap-2">
+          <div className="flex justify-end gap-2 mb-2">
             <Button
               variant="outline"
               size="icon"
@@ -151,13 +159,13 @@ export default function TournamentApp() {
             </Button>
           </div>
 
-          <div className="flex items-center justify-center gap-3">
-            <Trophy className="h-12 w-12 text-amber-500 drop-shadow-lg" />
-            <h1 className="text-5xl font-bold text-slate-900 dark:text-white drop-shadow-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <Trophy className="h-10 sm:h-12 w-10 sm:w-12 text-amber-500 drop-shadow-lg" />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white drop-shadow-sm">
               {t("app.title")}
             </h1>
           </div>
-          <p className="text-slate-600 dark:text-slate-300 text-lg">
+          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg">
             {t("app.subtitle")}
           </p>
         </div>
@@ -402,7 +410,13 @@ export default function TournamentApp() {
                 )}
 
                 {/* Matches Grid */}
-                <div className={`grid gap-4 ${currentRoundMatches.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
+                <div
+                  className={`grid gap-4 ${
+                    currentRoundMatches.length === 1
+                      ? "grid-cols-1 max-w-md mx-auto"
+                      : "grid-cols-1 md:grid-cols-2"
+                  }`}
+                >
                   {currentRoundMatches.map((match) => {
                     const team1 = getTeamById(match.team1Id);
                     const team2 = getTeamById(match.team2Id);
@@ -447,8 +461,15 @@ export default function TournamentApp() {
                             </div>
                           </button>
 
-                          <div className="text-center text-sm font-medium text-slate-500">
-                            {t("tournament.vs")}
+                          <div className="relative py-3">
+                            <div className="absolute inset-0 flex items-center">
+                              <div className="w-full border-t-2 border-slate-300 dark:border-slate-600"></div>
+                            </div>
+                            <div className="relative flex justify-center">
+                              <span className="bg-white dark:bg-slate-900 px-4 text-sm font-semibold text-slate-600 dark:text-slate-400">
+                                {t("tournament.vs")}
+                              </span>
+                            </div>
                           </div>
 
                           {/* Team 2 */}
